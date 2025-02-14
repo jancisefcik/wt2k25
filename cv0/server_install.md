@@ -3,7 +3,7 @@
 ## Úvod 
 Konfigurácia webového servera a "LEMP Stack-u" (Linux-Nginx-MySQL-PHP) pre predmet WEBTE2. Server je dostupný na verejnej IP adrese v tvare `147.175.105.XX`. Server má priradené aj doménové meno v tvare `nodeXX.webte.fei.stuba.sk` . Znaky **XX** v doménovom tvare adresy sú nahradené posledným číslom z IP adresy (môžu to byť 2 alebo 3 číslice).
 
-V celom tomto návode je potrebné kľúčové slová **username** a **password** nahrádzať vlastným prihlasovacím menom (login) a heslom, **ktorými sa prihlasujete do AIS**.
+Na server je možné prihlásiť sa prihlasovacím menom (login) a heslom, **ktorými sa prihlasujete do AIS**.
 
 **Nemeňte heslo priradené k vášmu kontu!**
 
@@ -20,8 +20,7 @@ Násldedne budete vyzvaní zadať heslo. Pri prvom prihlásení sa zobrazí tak�
 ```
 The authenticity of host '147.175.105.XX (147.175.105.XX)' can't be established.
 ED25519 key fingerprint is SHA256:lhGu321iNdaG+aoYfcIXf4qpJCIMkKDj49HTF1oqwic.
-This host key is known by the following other names/addresses:
-    ~/.ssh/known_hosts:36: [hashed name]
+The key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
@@ -123,7 +122,7 @@ sudo mysql_secure_installation
 
 **Odpovede na otázky počas konfigurácie:**
 - Setup validate password component? - **no**
-![validate-password](img/validate-password.png.png)
+![validate-password](img/validate-password.png)
 - Remove anonymous user? - **yes**
 ![anonym-user](img/anonym-user.png)
 - Disallow root login remotely? - **yes**
@@ -177,7 +176,7 @@ Nainštalujte webový server Nginx spolu s interpreterom jazyka PHP a textovým 
 sudo apt install -y nginx php-fpm nano
 ```
 
-Po navštívení vašej IP adresy vo webovom prehliadači alebo `nodeXX.webte.fei.stuba.sk` by webový prehliadač mal zobrazovať:
+Po navštívení vašej IP adresy vo webovom prehliadači alebo `nodeXX.webte.fei.stuba.sk` (pri nahradení **XX** za vaše posledné číslo z IP adresy) by webový prehliadač mal zobrazovať:
 ![nginx-installed](img/nginx-installed.png)
 
 Potom pridajte používateľa do skupiny www-data:
@@ -318,15 +317,23 @@ by sa po navštívení neexistujúcej URL na našom serveri mala zobraziť už v
 Inštalácia GUI utility pre správu databázy cez prehliadač.
 
 ```sh
-sudo apt install phpmyadmin
+sudo apt install -y phpmyadmin
 ```
-V priebehu inštalácie sa zobrazí informácia:
+Ak sa na začiatku inštalácie zobrazí informácia:
+![alt text](img/myadmin0.png)
+Nič nemeňte iba stlačte ENTER.
+Ak sa v priebehu inštalácie sa zobrazí informácia:
 ![myadmin1](img/myadmin1.png)
 Napíšte yes a stlačte ENTER.
-Následne sa objaví informácia:
+Ak sa objaví takéto okno:
+![myadmin2-2](img/myadmin1-1.png)
+Stlačte iba ENTER
+Následne sa objaví informácia o hesle buď v príkazovom riadku:
 ![alt text](img/myadmin2.png)
-Nič nevypĺňajte iba stlačte ENTER
-Následne sa zobrazí informácia, pre ktorý server má byť program predkonfigurovaný. Nič nevypĺňajte a stlačte ENTER.
+alebo v sivom okne:
+![myadmin2-2](img/myadmin2-2.png)
+Nič nevypĺňajte iba stlačte ENTER.
+Ak sa v príkazovom riadku zobrazí informácia, pre ktorý server má byť program predkonfigurovaný. Nič nevypĺňajte a stlačte ENTER.
 
 Vytvorte súbor pre konfiguráciu PHPMyAdmin:
 ```sh
@@ -406,4 +413,5 @@ Reštartujte server príkazom:
 sudo service nginx restart
 ```
 Po navštívení stránky: `https://nodeXX.webte.fei.stuba.sk/phpmyadmin` sa zobrazí prihlasovacia obrazovka pre PHPMyAdmin. Prihlásite sa pomocou údajov, ktoré ste zadali pri vytváraní používateľa v MySQL serveri. Ak ste postupovali podľa návodu, mal by to byť váš AIS login a heslo, ktoré ste si zapísali.
+
 ![myadmin-login](img/myadmin-login.png)
