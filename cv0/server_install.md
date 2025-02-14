@@ -291,7 +291,7 @@ V prípade, že príkaz reštartovania serveru vráti chybu, skontrolujte konfig
 ### Vlastná stránka pre chybu 404
 Vytvoríme si v koreňovom adresári stránok súbor:
 ```sh
-nano /var/www/node8/404.html
+nano /var/www/nodeXX.webte.fei.stuba.sk/404.html
 ```
 Do súboru vložíme zmysluplný text, ktorý sa zobrazí vždy pri požiadavke na neexistujúci zdroj namiesto štandardnej chybovej stránky serveru. Pre príklad môžete použiť súbor `404.html`, ktorý sa nachádza v tomto repozitári v adresári `src`.
 
