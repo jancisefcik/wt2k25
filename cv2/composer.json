@@ -1,0 +1,16 @@
+{
+    "require": {
+        "robthree/twofactorauth": "^3.0",
+        "bacon/bacon-qr-code": "^3.0",
+        "endroid/qr-code": "^6.0",
+        "google/apiclient": "^2.18"
+    },
+    "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Oauth2"
+        ]
+    }
+}
