@@ -1,5 +1,7 @@
 // new ws connection
-let ws = new WebSocket('ws://localhost:8081');
+let ws = new WebSocket('/chat');
+// Alternatively use absolute path, change DNS_NAME to your server's DNS name
+// let ws = new WebSocket('wss://DNS_NAME/chat');
 
 // dom refs
 const nameForm = document.querySelector('.name-form');
